@@ -95,7 +95,7 @@ pipeline {
                 sh '''
                     docker stop $PROD_CONTAINER || true
                     docker rm $PROD_CONTAINER || true
-                    docker run -d -p 8089:3000 --name $PROD_CONTAINER $APP_NAME:$IMAGE_TAG
+                    docker run -d -p 8087:3000 --name $PROD_CONTAINER $APP_NAME:$IMAGE_TAG
                 '''
             }
         }
