@@ -58,6 +58,15 @@ pipeline {
             }
         }
 
+        stage('Deploy to DEV') {
+            steps {
+                sh '''
+                    docker stop $DEV_CONTAINER || true
+                    docker rm $DEV_CONTAINER || true
+                    docker run -d -p 8080:3000 --name $DEV_CONTAINER $APP_NAME:$IMAGE_TAG
+                '''
+            }
+        }
 
         stage('Approval for STAGING') {
             steps {
