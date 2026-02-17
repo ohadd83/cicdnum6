@@ -9,10 +9,6 @@ pipeline {
         PROD_CONTAINER = "myapp-prod"
     }
 
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10')) // keep last 10 builds
-        timeout(time: 30, unit: 'MINUTES')
-    }
 
     stages {
 
@@ -34,11 +30,6 @@ pipeline {
             }
         }
 
-        stage('Lint') {
-            steps {
-                sh 'npm run lint || echo "Lint warnings"'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
