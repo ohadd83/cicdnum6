@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APP_NAME = "myapp"
+        APP_NAME = "myappnew1"
         IMAGE_TAG = "${GIT_COMMIT.take(7)}"   // short Git SHA for versioning
         DEV_CONTAINER = "myapp-dev"
         STAGING_CONTAINER = "myapp-staging"
